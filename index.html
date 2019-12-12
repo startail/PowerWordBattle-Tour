@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - PowerWordBattle</title>
+    <meta name="description" content="Consumer Generated Media Sample">
+
+    <!-- Read bootstrap CSS libs & Fonts -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+
+    <!-- Read bootstrap JS libs  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/behavior.js"></script>
+
+    <!-- Read the Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+    
+    <!-- Don't forget copy&paste the Firebase SDK snippet to your firebase-info.js -->
+    <script src="assets/js/firebase-info.js"></script>
+    <script src="assets/js/word-generator.js"></script>
+    <script src="assets/js/firebase-authentication-signup.js"></script>
+    <script src="assets/js/firebase-authentication-signin.js"></script>
+    <script src="assets/js/firebase-authentication-signout.js"></script>
+    <script src="assets/js/firebase-firestore-read.js"></script>
+    <script src="assets/js/firebase-firestore-write.js"></script>
+    <script src="assets/js/firebase-authentication-observer.js"></script>
+    
+
+</head>
+
+<body id="page-top">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
+        <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">Power Word Battle</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#latest">contents</a></li>
+                    <li class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">about</a></li>
+                    <li id="signIn" class="nav-item mx-0 mx-lg-1" role="presentation"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" data-toggle="modal" href="#signin-modal">SIGN IN</a></li>
+                    <li id="signOut" class="nav-item mx-0 mx-lg-1" role="presentation" style="display:none;"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" onclick="firebaseSignOut()">SIGN OUT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead text-white text-center" style="background-color: rgb(241,214,70);">
+        <div class="container"><img class="img-fluid d-block mx-auto mb-5" src="assets/img/logo.png">
+            <h1>さぁ、その胸を焦がす熱いフレーズを刻めっ！！</h1>
+            <h2 class="font-weight-light mb-0">パワーワードバトルは皆様の熱い投稿をお待ちしております！！</h2>
+        </div>
+    </header>
+    <section id="latest" class="portfolio">
+        <div class="container">
+            <h2 class="text-uppercase text-center text-secondary">Latest POWER WORDS!!</h2>
+            <div class="row">
+                <!-- href="#general-modal" -->
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" data-toggle="modal" href=""><img class="img-fluid" src="assets/img/cahrt.png"><h1 id="post1" class="text-center" style="font-size: 24px;">コミットがチョモランマ</h1></a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" data-toggle="modal" href=""><img class="img-fluid" src="assets/img/drink.png"><h1 id="post2" class="text-center" style="font-size: 24px;">タピる</h1></a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" data-toggle="modal" href=""><img class="img-fluid" src="assets/img/book.png"><h1 id="post3" class="text-center" style="font-size: 24px;">つちのこシャングリ・ラ</h1></a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" data-toggle="modal" href=""><img class="img-fluid" src="assets/img/animal.png"><h1 id="post4" class="text-center" style="font-size: 24px;">ネココニャン</h1></a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" data-toggle="modal" href=""><img class="img-fluid" src="assets/img/mussle.png"><h1 id="post5" class="text-center" style="font-size: 24px;">ナイスバルク</h1></a></div>
+                <div class="col-md-6 col-lg-4"><a class="d-block mx-auto portfolio-item" data-toggle="modal" href=""><img class="img-fluid" src="assets/img/bussiness.png"><h1 id="post6" class="text-center" style="font-size: 24px;">進捗おばけ</h1></a></div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="text-white mb-0" style="background-color: rgb(241,214,70);">
+        <div class="container">
+            <h2 class="text-uppercase text-center text-white">About</h2>
+            <div class="row">
+                <div class="col-lg-4 ml-auto">
+                    <p class="lead">パワーワードバトルは全国のネットユーザーの記憶に焼き付いた熱いフレーズを投稿し、品評しあうイカしたWebサービス！</p>
+                </div>
+                <div class="col-lg-4 mr-auto">
+                    <p class="lead">IT、筋肉、動物何でもござれ。人気ワードランキング。どっちのワードショー。ここにしかない新世代ワードも！？</p>
+                </div>
+            </div>
+            <div class="text-center mt-4"><a class="btn btn-outline-light btn-xl" role="button"  data-toggle="modal" href="#signup-modal"><span>今すぐ参加！！</span></a></div>
+        </div>
+    </section>
+
+    <section id="submit">
+        <div class="container">
+            <h2 class="text-uppercase text-center text-secondary mb-0">Shout THE WORD!!</h2>
+            <h1 class="text-center" style="font-family: Lato, sans-serif;font-size: 26px;">パワーワードを発見！？ 今すぐ投稿だっ！！</h1>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Word</label><input class="form-control" type="text" id="powerword" required="" placeholder="パワーワード(必須）"><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-5 pb-2"><label>Explanation</label><textarea class="form-control" id="explanation" required="" placeholder="説明・解説" rows="４"></textarea><small class="form-text text-danger help-block"></small></div>
+                        </div>
+                        <div class="form-group text-center">
+                            <a id="sendWordButton" onclick=""><button class="btn btn-primary btn-xl">投稿</button></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4"></h4>
+                    <p></p>
+                </div>
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase">皆と共有しよう！！</h4>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a class="btn btn-outline-light btn-social text-center rounded-circle" role="button" href="#"><i class="fa fa-facebook fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a class="btn btn-outline-light btn-social text-center rounded-circle" role="button" href="#"><i class="fa fa-google fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a class="btn btn-outline-light btn-social text-center rounded-circle" role="button" href="#"><i class="fa fa-twitter fa-fw"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-uppercase mb-4"></h4>
+                    <p class="lead mb-0"></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Copyright ©&nbsp;PowerWordBattle 2019</small></div>
+    </div>
+    <div class="d-lg-none scroll-to-top position-fixed rounded"><a class="d-block js-scroll-trigger text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+    
+    <div class="modal text-center" role="dialog" tabindex="-1" id="general-modal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h2 id="wordsName" class="text-uppercase text-secondary mb-0"></h2>
+                                <h3 id="wordsUser" class="text-uppercase text-secondary mb-0"></h3>
+                                <img id="wordsImg" class="img-fluid mb-5" src="">
+                                <p id="wordsExplanation" class="mb-5" id=""></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pb-5"><a class="btn btn-primary btn-lg mx-auto rounded-pill portfolio-modal-dismiss" role="button" onclick="$('#general-modal').modal('hide')"><i class="fa fa-close"></i>&nbsp;Close Project</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="">利用者登録</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <h2 id="signUpAlert"class="text-uppercase text-center text-secondary mb-0">ユーザー登録</h2>
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <form id="signupForm" name="signup">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Name</label><input class="form-control" type="text" id="signUpName" placeholder="ユーザー名"><small class="form-text text-danger help-block"></small></div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Email Address</label><input class="form-control" type="text" id="signUpEmail" placeholder="メールアドレス"><small class="form-text text-danger help-block"></small></div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Password</label><input class="form-control" type="password" id="signUpPassword" placeholder="パスワード"><small class="form-text text-danger help-block"></small></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#signup-modal').modal('hide')">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="">SignUp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-labelledby="label1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ログイン</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <h2 id="signInAlert" class="text-uppercase text-center text-secondary mb-0"></h2>
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <form id="signinForm" name="signin">
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Email Address</label><input class="form-control" type="text" id="signInEmail" placeholder="メールアドレス"><small class="form-text text-danger help-block"></small></div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="form-group floating-label-form-group controls mb-0 pb-2"><label>Password</label><input class="form-control" type="password" id="signInPassword" required="" placeholder="パスワード"><small class="form-text text-danger help-block"></small></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#signin-modal').modal('hide')">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="">SignIn</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
